@@ -2,25 +2,25 @@ import os
 import json
 import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from openai import AzureOpenAI
+from openai import OpenAI
+from dotenv import load_dotenv
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 import googlemaps
 from math import sin, cos, sqrt, atan2, radians
 
-gmaps = googlemaps.Client(key='')
-# Initialize the Azure OpenAI client
-client = AzureOpenAI(
-    azure_endpoint="https://qcri-llm-rag-3.openai.azure.com/",
-    api_key="",
-    api_version="2024-05-01-preview",
-    azure_deployment="gpt-35-turbo",
+load_dotenv()
+
+gmaps = googlemaps.Client(key=os.getenv("GOOGLE_MAP_API_KEY", ""))
+client = OpenAI(
+    base_url=os.getenv("DEEPSEEK_BASE_URL", "https://api.deepseek.com"),
+    api_key=os.getenv("DEEPSEEK_API_KEY"),
 )
 
 # Provide the model deployment name you want to use for this example
 
-deployment_name = "gpt-35-turbo"
+deployment_name = os.getenv("DEEPSEEK_MODEL", "deepseek-flash")
 
 # Simplified weather data
 WEATHER_DATA = {
@@ -396,6 +396,7 @@ def run_conversation(query):
         messages=messages,
         tools=tools,
         tool_choice="auto",
+        extra_body={"thinking": {"type": "disabled"}},
     )
 
     # Process the model's response
@@ -475,7 +476,7 @@ def run_conversation(query):
     else:
         print("No tool calls were made by the model.")
 
-    return messages
+    return [message.model_dump() if hasattr(message, "model_dump") else message for message in messages]
 
 if __name__ == "__main__":
     # print(run_conversation("I'm currently in Vancouver, BC, Canada and interested in outdoor activities. What is the nearest park or nature reserve in this area ?"))

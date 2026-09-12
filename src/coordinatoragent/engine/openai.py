@@ -60,8 +60,9 @@ class ChatOpenAI(EngineLM, CachedEngine):
             super().__init__(cache_path=cache_path)
 
         self.system_prompt = system_prompt
-        if os.getenv("OPENAI_API_KEY") is None:
-            raise ValueError("Please set the OPENAI_API_KEY environment variable if you'd like to use OpenAI models.")
+        api_key = os.getenv("DEEPSEEK_API_KEY")
+        if api_key is None:
+            raise ValueError("Please set the DEEPSEEK_API_KEY environment variable.")
         
         # self.client = OpenAI(
         #     api_key=os.getenv("OPENAI_API_KEY"),
@@ -73,10 +74,10 @@ class ChatOpenAI(EngineLM, CachedEngine):
         #
         #     )
         self.client = OpenAI(
-                  base_url="https://openrouter.ai/api/v1",
-                  api_key="",
+                  base_url=os.getenv("DEEPSEEK_BASE_URL", "https://api.deepseek.com"),
+                  api_key=api_key,
                 )
-        self.model_string = model_string
+        self.model_string = os.getenv("DEEPSEEK_MODEL", "deepseek-flash")
         self.is_multimodal = is_multimodal
         self.enable_cache = enable_cache
 
@@ -166,11 +167,12 @@ class ChatOpenAI(EngineLM, CachedEngine):
         # prev
         if self.model_string in ['o1', 'o1-mini']: # only supports base response currently
             response = self.client.beta.chat.completions.parse(
-                model="gpt-35-turbo",
+                model=self.model_string,
                 messages=[
                     {"role": "user", "content": prompt},
                 ],
-                max_completion_tokens=max_tokens
+                max_completion_tokens=max_tokens,
+                extra_body={"thinking": {"type": "disabled"}},
             )
             if response.choices[0].finishreason == "length":
                 response = "Token limit exceeded"
@@ -178,7 +180,7 @@ class ChatOpenAI(EngineLM, CachedEngine):
                 response = response.choices[0].message.parsed
         elif self.model_string in OPENAI_STRUCTURED_MODELS and response_format is not None:
             response = self.client.beta.chat.completions.parse(
-                model="gpt-4o",
+                model=self.model_string,
                 messages=[
                     {"role": "system", "content": sys_prompt_arg},
                     {"role": "user", "content": prompt},
@@ -189,12 +191,13 @@ class ChatOpenAI(EngineLM, CachedEngine):
                 temperature=temperature,
                 max_tokens=max_tokens,
                 top_p=top_p,
-                response_format=response_format
+                response_format=response_format,
+                extra_body={"thinking": {"type": "disabled"}},
             )
             response = response.choices[0].message.parsed
         else:
             response = self.client.chat.completions.create(
-                model="gpt-4o",
+                model=self.model_string,
                 messages=[
                     {"role": "system", "content": sys_prompt_arg},
                     {"role": "user", "content": prompt},
@@ -205,6 +208,7 @@ class ChatOpenAI(EngineLM, CachedEngine):
                 temperature=temperature,
                 max_tokens=max_tokens,
                 top_p=top_p,
+                extra_body={"thinking": {"type": "disabled"}},
             )
             response = response.choices[0].message.content
         # prev
@@ -265,11 +269,12 @@ class ChatOpenAI(EngineLM, CachedEngine):
         if self.model_string in ['o1', 'o1-mini']: # only supports base response currently
             print(f'Max tokens: {max_tokens}')
             response = self.client.chat.completions.create(
-                model="gpt-4o",
+                model=self.model_string,
                 messages=[
                     {"role": "user", "content": formatted_content},
                 ],
-                max_completion_tokens=max_tokens
+                max_completion_tokens=max_tokens,
+                extra_body={"thinking": {"type": "disabled"}},
             )
             if response.choices[0].finish_reason == "length":
                 response_text = "Token limit exceeded"
@@ -278,7 +283,7 @@ class ChatOpenAI(EngineLM, CachedEngine):
         elif self.model_string in OPENAI_STRUCTURED_MODELS and response_format is not None:
             response = self.client.beta.chat.completions.parse(
             # response = self.client.chat.completions.create(
-                model="gpt-4o",
+                model=self.model_string,
                 messages=[
                     {"role": "system", "content": sys_prompt_arg},
                     {"role": "user", "content": formatted_content},
@@ -286,13 +291,14 @@ class ChatOpenAI(EngineLM, CachedEngine):
                 temperature=temperature,
                 max_tokens=max_tokens,
                 top_p=top_p,
-                response_format=response_format
+                response_format=response_format,
+                extra_body={"thinking": {"type": "disabled"}},
             )
             response_text = response.choices[0].message.parsed
             # response_text = response.choices[0].message.content
         else:
             response = self.client.chat.completions.create(
-                model="gpt-4o",
+                model=self.model_string,
                 messages=[
                     {"role": "system", "content": sys_prompt_arg},
                     {"role": "user", "content": formatted_content},
@@ -300,6 +306,7 @@ class ChatOpenAI(EngineLM, CachedEngine):
                 temperature=temperature,
                 max_tokens=max_tokens,
                 top_p=top_p,
+                extra_body={"thinking": {"type": "disabled"}},
             )
             response_text = response.choices[0].message.content
 

@@ -17,10 +17,21 @@ from math import isclose
 from openai import AzureOpenAI
 from math import sin, cos, sqrt, atan2, radians
 from datetime import datetime
+from dotenv import load_dotenv
 
-from fuzzywuzzy import fuzz
+load_dotenv()
 
-gmaps = googlemaps.Client(key='')
+DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY")
+DEEPSEEK_BASE_URL = os.getenv("DEEPSEEK_BASE_URL", "https://api.deepseek.com")
+DEEPSEEK_MODEL = os.getenv("DEEPSEEK_MODEL", "deepseek-flash")
+
+gmaps = googlemaps.Client(key=os.getenv("GOOGLE_MAP_API_KEY", ""))
+
+
+def _deepseek_client():
+    if not DEEPSEEK_API_KEY:
+        raise ValueError("Please set the DEEPSEEK_API_KEY environment variable.")
+    return OpenAI(base_url=DEEPSEEK_BASE_URL, api_key=DEEPSEEK_API_KEY)
 
 
 def safe_execute(code_string: str, keys=None):
@@ -365,14 +376,9 @@ def get_chat_response(messages, api_key, model="gpt-3.5-turbo", temperature=0, m
             #     if prediction[0] != "" and prediction[0] != None:
             #         return prediction
             # Azure
-            client = AzureOpenAI(
-                azure_endpoint="https://qcri-llm-rag-3.openai.azure.com/",
-                api_key="",
-                api_version="2024-05-01-preview",
-
-            )
+            client = _deepseek_client()
             response = client.chat.completions.create(
-                model="gpt-35-turbo",
+                model=DEEPSEEK_MODEL,
                 messages=messages,
                 temperature=temperature,
                 max_tokens=max_tokens,
@@ -380,7 +386,8 @@ def get_chat_response(messages, api_key, model="gpt-3.5-turbo", temperature=0, m
                 frequency_penalty=0,
                 presence_penalty=0,
                 stop=None,
-                n=n
+                n=n,
+                extra_body={"thinking": {"type": "disabled"}},
             )
             if n == 1:
                 prediction = response.choices[0].message.content.strip()
@@ -420,12 +427,9 @@ def get_qwen_response(messages, api_key, model="gpt-3.5-turbo", temperature=0, m
             #         return prediction
             # Azure
             #
-            client = OpenAI(
-                base_url="https://openrouter.ai/api/v1",
-                api_key="",
-            )
+            client = _deepseek_client()
             response = (client.chat.completions.create(
-                model="qwen/qwen-2.5-72b-instruct",
+                model=DEEPSEEK_MODEL,
                 messages=messages,
                 temperature=temperature,
                 max_tokens=max_tokens,
@@ -433,7 +437,8 @@ def get_qwen_response(messages, api_key, model="gpt-3.5-turbo", temperature=0, m
                 frequency_penalty=0,
                 presence_penalty=0,
                 stop=None,
-                n=n
+                n=n,
+                extra_body={"thinking": {"type": "disabled"}},
             ))
             #     client.chat.completions.create(
             #     model="gpt-35-turbo",
@@ -498,14 +503,9 @@ def get_40_response(messages, api_key, model, temperature=0, max_tokens=256, n=1
             #     if prediction[0] != "" and prediction[0] != None:
             #         return prediction
             # Azure
-            client = AzureOpenAI(
-                azure_endpoint="https://qcri-llm-rag-3.openai.azure.com/",
-                api_key="",
-                api_version="2024-05-01-preview",
-
-            )
+            client = _deepseek_client()
             response = client.chat.completions.create(
-                model="gpt-4o",
+                model=DEEPSEEK_MODEL,
                 messages=messages,
                 temperature=temperature,
                 max_tokens=max_tokens,
@@ -513,7 +513,8 @@ def get_40_response(messages, api_key, model, temperature=0, max_tokens=256, n=1
                 frequency_penalty=0,
                 presence_penalty=0,
                 stop=None,
-                n=n
+                n=n,
+                extra_body={"thinking": {"type": "disabled"}},
             )
             if n == 1:
                 prediction = response.choices[0].message.content.strip()
@@ -768,17 +769,9 @@ def safe_equal(prediction: Union[bool, float, str],
             return reference == 'no'
     elif type(reference) == str and type(prediction) == str:
         # string questions
-        # string questions
-        # prediction = prediction.strip().lower()
-        # reference = reference.strip().lower()
-        # return prediction == reference
         prediction = prediction.strip().lower()
         reference = reference.strip().lower()
-        fuzzy_score = fuzz.ratio(prediction, reference)
-        is_correct = False
-        if fuzzy_score >= 30:
-            is_correct = True
-        return is_correct
+        return prediction == reference
     else:
         # number questions
         if include_percentage:

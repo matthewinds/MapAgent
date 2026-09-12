@@ -15,11 +15,9 @@ from demos import prompt_policy, prompt_kr, prompt_sg, prompt_qg, prompt_gm, pro
 
 # OpenAI
 openai.api_key = os.getenv("OPENAI_API_KEY")
-print(openai.api_key)
 
 # OpenAI
 bing_api_key = os.getenv("BING_API_KEY")
-print(bing_api_key)
 
 
 class solver:
@@ -495,6 +493,11 @@ class solver:
                 success = True
             count += 1
 
+        self.cache["response"] = solution
+        self.cache["sequencer:input"] = test_prompt
+        self.cache["sequencer:output"] = solution
+        return test_prompt, solution
+
     def solution_generator(self):
         # get the module input
         if self.model == "chameleon":
@@ -546,6 +549,9 @@ class solver:
                 if ans in inds[:len(options)]:
                     success = True
                     prediction = options[inds.index(ans)]
+            elif re.search(r"\bunanswerable\b", output, re.IGNORECASE):
+                success = True
+                prediction = "Unanswerable"
 
         if not success:
             # prediction = normalize_prediction_scienceqa(output, options)
