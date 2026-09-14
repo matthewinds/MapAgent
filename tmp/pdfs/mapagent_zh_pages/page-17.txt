@@ -1,0 +1,63 @@
+解决方案生成器（Solution Generator）
+答案生成器（Answer Generator）
+地图服务（Map Service）
+规划智能体（Planner Agent）
+地图工具智能体（Map-Tool Agent）
+在执行 map_service 模块时，它会连接到内层（Inner Layer）的 map-tool agent。
+所有位置信息：
+Planetshakers Church Melbourne City Campus
+名称：
+Planetshakers Church Melbourne City Campus
+地址：400 City Rd, Southbank VIC 3006, Australia
+评分：4.8
+……
+从 Planetshakers Church Melbourne City Campus 到 Carrot Tattoo Studio 的出行时间（距离）为 9 分钟（2.0 km）。从 Melbourne Lifestyle Apartments - Docklands Accommodation 到 Carrot Tattoo Studio 的出行时间（距离）为 11 分钟（2.7 km）。
+Lifestyle Apartments - Docklands Accommodation 到 Carrot Tattoo Studio 为 11 分钟（2.7 km）
+........
+
+为了确定从 Planetshakers Church Melbourne City Campus 到 Carrot Tattoo Studio，然后到 Melbourne Lifestyle Apartments - Docklands Accommodation 的总出行时间，我们需要将旅程每一段的出行时间相加。
+1. **从 Planetshakers Church Melbourne City Campus 到 Carrot Tattoo Studio：**
+- 出行时间：9 分钟
+2. **从 Carrot Tattoo Studio 到 Melbourne Lifestyle Apartments - Docklands Accommodation：**
+- 出行时间：10 分钟
+现在，我们将这些出行时间相加：9 分钟 + 10 分钟 = 19 分钟。因此，总出行时间为 19 分钟。
+根据 solution generator 的响应，答案应为 19 Minutes，这看起来合理且正确。答案是 B. 19 Minutes
+我目前在 Planetshakers Church Melbourne City Campus。我想开车去 Carrot Tattoo Studio，然后去 Melbourne Lifestyle Apartments - Docklands Accommodation。这会花多长时间？
+选项：A. 18 mins  B. 19 mins  C. 20 mins  D. 21 mins
+查询（Query）
+序列器（Sequencer）
+行程（Trip）
+组织后的地理空间信息（Organized Geospatial Information）
+I. 位置详情：Planetshakers Church Melbourne City Campus
+名称：Planetshakers Church Melbourne City Campus
+…
+II. 出行时间与距离
+（所有配对均为双向）：
+Planetshakers Church Melbourne City Campus 到 Carrot Tattoo Studio
+时间：9 mins ...
+图 6：详细示例：MapAgent 如何解决一个查询，包括每个模块的输出
+解决方案生成器（Solution Generator）
+答案生成器（Answer Generator）
+视觉地点识别器（Visual Place Recognizer）
+地图服务（Map Service）
+规划智能体（Planner Agent）
+地图工具智能体（Map-Tool Agent）
+附近（Nearby）
+这张图像的中心点表示 Radmansgatan 46, 113 57 Stockholm, Sweden 的位置。从该中心点到图像边缘的半径应为 600 米。
+在执行 map_service 模块时，它会连接到内层（Inner Layer）的 map-tool agent。
+在位置 Radmansgatan 46, 113 57 Stockholm, Sweden 的 0.8 公里范围内有一些教堂，如下所示：
+City Church（距离：0.46526450497253263 公里，评分：4.6，总评论数：94）
+St. Peter's Church, Stockholm（距离：0.584886996790922 公里，评分：4.5，总评论数：42）
+Adolf Fredriks Forsamling（距离：0.36249979086127565 公里，评分：4.5，总评论数：341）
+根据提供的地图和 Google Maps 上下文，在地图下半部分可见的教堂是：
+St. Peter's Church, Stockholm
+Adolf Fredriks Forsamling
+City Church
+因此，正确答案是 B. Three。
+B. Three。
+地图下半部分可见多少座教堂？
+选项：A.Five B.Two C.Four D.Three
+查询（Query）
+图像（Image）
+图 7：详细示例：MapAgent 如何解决一个查询，包括每个模块的输出
+1312

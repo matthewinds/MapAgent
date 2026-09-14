@@ -1,0 +1,16 @@
+方法 并行 组合式 分层 即插即用
+工具调用 推理 或 Map-tools
+ReAct (Yao et al., 2023) ✗ ✗ ✗ ✗
+LLMCompiler (Kim et al., 2024) ✓ ✗ ✗ ✗
+Octotools (Lu et al., 2025) ✓ ✓ ✗ ✓
+Chameleon (Lu et al., 2023) ✗ ✓ ✗ ✓
+Anytool (Du et al., 2024) ✗ ✗ ✓ ✗
+MapAgent (Ours) ✓ ✓ ✓ ✓
+表 1：在面向地图集成地理空间推理的背景下，不同工具调用框架的功能比较。
+其将高层任务规划与低层工具执行解耦。一个顶层规划器智能体（planner agent）将复杂的自然语言查询分解为结构化子目标，并将它们路由到适当的工具工作流。对于工具密集型子目标——例如涉及地图服务的子目标——我们引入一个专用的地图工具智能体（map-tool agent），它自适应地管理与多个地图工具的交互，在适当的时候发起并行 API 调用，并在需要时协调顺序工作流。相比之下，轻量级任务——例如答案格式化或偏好综合——则直接处理，不增加额外的智能体开销。
+我们在四个多样化的地理空间推理基准上评估 MapAgent——MapQA、MapEval-Textual、MapEval-Visual 和 MapEval-API——每个基准都呈现出不同的挑战，包括文本上下文、多模态输入和仅查询设置。MapAgent 使用开放权重和闭源骨干 LLM 构建，在所有基准上始终优于此前的 state-of-the-art 智能体式和工具增强型 LLM 框架。使用 GPT-3.5-Turbo 时，它在 MapEval-API 和 MapEval-Textual 数据集上均实现了 10% 的提升，并在 MapQA 数据集上相较于强基线 OctoTools (Lu et al., 2025) 实现了 11.22% 的提升。此外，在使用 GPT-4o 时，MapAgent 在 MapEval-Visual 数据集上相较于同一基线实现了 4.41% 的提升。总体而言，在需要多跳规划、空间推理和动态工具使用的地理空间任务中，MapAgent 相较于最强基线 OctoTools 平均提升了 8.2%。我们的消融、定性和细粒度分析进一步为 MapAgent 的有效性提供了更多见解。
+2 相关工作
+使用 LLM 的组合式推理。解决复杂的多步问题通常涉及将任务分解为可管理的子问题 (Perez et al., 2020; Khot et al., 2023)。基于提示的方法，如 Chain-of-Thought (Wei et al., 2022)、Least-to-Most (Zhou et al., 2023)、ReAct (Yao et al., 2023)、Pearl (Sun et al., 2024)、Forest-of-Thought (Bi et al., 2024) 和 rStar-Math (Guan et al., 2025)，提升了 LLM 进行顺序推理的能力。其他方法从自然语言合成结构化程序（例如 LLM Compiler (Kim et al., 2024)）或编排模块化工具（例如 Chameleon (Lu et al., 2023)、OctoTools (Lu et al., 2025)）。尽管这些系统有效，但它们通常假设模块清单是扁平的或静态的，并且难以处理在模式或功能上存在细微差异的工具变体。相比之下，MapAgent 利用分层规划和动态模块选择，以支持在重叠但异构的 API 上进行即插即用协调，尤其是在地理空间领域。
+使用语言模型进行地理空间推理。地理空间问答已通过基于规则和模板驱动的系统进行研究，这些系统将自然语言转换为对静态数据库的结构化查询（例如 PostGIS、DBpedia (Auer et al., 2007)、YAGO (Suchanek et al., 2007)、Freebase (Bollacker et al., 2007)、OSM）。值得注意的例子包括基于 GeoSPARQL 的系统 (Car et al., 2022) 以及诸如 GeoQuestions1089 (Kefalidis et al., 2023) 和 YAGO2geo (Karalis et al., 2019) 等数据集。这些方法精确但缺乏灵活性，受限于其对静态模式和查询语法的依赖。
+近期工作探索了 LLM 的内在地理知识（例如 GPT4GEO (Roberts et al., 2023)、(Mai et al., 2024)）或其直接回答地图相关查询的能力（例如 MapQA (Li et al., 2025)、MapEval (Dihan et al., 2025b,a)）。尽管这些模型前景可观，但它们缺乏整合外部工具或协调多 API 工作流的机制。MapAgent 建立在这一研究方向之上。
+1298

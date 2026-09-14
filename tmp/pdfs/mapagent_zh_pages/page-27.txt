@@ -1,0 +1,31 @@
+Listing 7：示例 2，VLLM 如何使用 API 猜出正确答案。绿色：正确答案。红色：错误答案。
+上下文：
+问题：
+我在 Sagor Electronix 服务中心。离我最近的清真寺是哪一个？
+选项：A. Kalumaria Mosque B. Al Ihsan Jame Mosque C. Komlapur Jame Masjid D. Mollikpur mosque
+使用 API（MapAgent）的响应：
+Google Map 响应：
+从当前位置 Sagor Electronix 服务中心出发，有一些清真寺的距离如下：
+Al Ihsan Jame Mosque（距离：0.5823095053737362 千米，评分：5，总评论数：1）
+Mollikpur mosque（距离：1.1680710806133061 千米，评分：4.7，总评论数：3）
+Kalumaria Mosque（距离：1.1879085293895582 千米，评分：4.3，总评论数：4）
+Lolithar Bazar Central Masjid（距离：1.1566211819806247 千米，评分：0，总评论数：0）
+Komlapur Jame Masjid（距离：1.8654544610349613 千米，评分：4.4，总评论数：25）
+Rajshahi University Central Mosque（距离：4.459173025195116 千米，评分：4.9，总评论数：221）
+Maria Jama Masjid（距离：1.8367913382567742 千米，评分：4，总评论数：9）
+Maherchandi East Jame Mosque（距离：2.3601717780592995 千米，评分：5，总评论数：5）
+Vodra Central Jame Mosque（距离：5.131809940553015 千米，评分：4.6，总评论数：145）
+Madina Nagar Jame Mosque（距离：4.21188964565389 千米，评分：4.4，总评论数：57）
+Purbo Para Jame Mosque（距离：3.614167437327442 千米，评分：4.2，总评论数：26）
+Meherchandi Purbapara Central Jame Mosque（距离：3.4298745224188134 千米，评分：4.5，总评论数：69）
+Katakhali Bazar Jame Masjid（距离：4.28092651862087 千米，评分：4.5，总评论数：193）
+Belghoria Jama Masjid（距离：5.697832533309013 千米，评分：4.6，总评论数：19）
+Hazrapukur Jame Mosque（距离：3.260713598861443 千米，评分：4.6，总评论数：30）
+来自解决方案生成器的最终答案：
+离你位置最近的清真寺是 **Al Ihsan Jame Mosque**，距离为 0.582 千米。\n\n答案：**(B) Al Ihsan Jame Mosque**
+不使用 API（Base Model）的响应：
+好的，我看到你在地图上的位置了！离 Sagor Electronix 服务中心最近的清真寺似乎是
+(C) Kalumaria Mosque。
+观察：
+正确答案应该是 B。三个使用 API 的版本都能预测出来，但没有 API 的 base model 无法回答。
+1322

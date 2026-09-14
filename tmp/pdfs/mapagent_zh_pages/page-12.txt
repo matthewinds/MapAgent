@@ -1,0 +1,41 @@
+## A MapAgent 如何优于 Chameleon 和 OctoTools
+
+附录 A.1、A.2 和 A.3 展示了一个示例，其中 OctoTools 和 Chameleon 未能解决一个复杂的地理空间查询，但 MapAgent 可以。这种失败背后的主要原因是 OctoTools 和 Chameleon 将所有模块或工具卡片都放在一层中。因此，它们难以猜测用于获取信息的准确工具/模块。该示例表明，解决此查询需要查询中每个位置到另一位置的距离和旅行时间，而行程工具（trip tool）可以正确提供这些信息。然而，Chameleon 和 OctoTools 在这里都遇到了困难，并选择路线工具（route tool）来获取信息，随后缺乏所有地点之间所有路线的信息。此外，OctoTools 还遇到了另一个限制。如表 9 所示，其中显示了 OctoTools 的中间推理步骤，我们发现该框架产生了幻觉，并触发了一个带有与问题无关参数的工具，从而产生了错误信息。这些限制导致无法向后续步骤提供所有所需信息。然而，MapAgent 可以通过在 Google Map 模块中引入一个内层来有效解决这个问题。该模块与一个地图工具智能体（map-tool agent）通信，适当地触发行程工具并检索相关信息，这些信息足以让后续步骤确定解决方案。
+
+MapEval-API
+MapQA
+MapEval-TextualMapEval-Visual
+0
+2
+4
+6
+8
+10
+12准确率(%) MapAgent 相对于 OctoTools 的增益
+10.00
+11.54 11.22
+9.00
+10.00
+6.00
+4.41
+2.80
+GPT-3.5-Turbo
+Qwen-2.5-72B
+GPT-4o
+Qwen-2.5-VL-72B
+
+图 5：MapAgent 相对于 OctoTools 在各种基准测试上的准确率提升。
+
+### A.1 Octotools 输出 绿色：正确答案 红色：错误答案
+
+• PID：19
+• 查询：我在 Rydges Wellington。从我的当前位置出发，我将首先前往 Kelburn Park，然后前往 Victoria University of Wellington，最后返回我的当前位置。所有行程都将使用我自己的汽车完成。整个旅程需要多长时间？
+• 选项：A.11 分钟 B.10 分钟 C.12 分钟 D.9 分钟
+• 正确答案：B
+• 推理步骤：表 9 显示了 OctoTools 的推理步骤及其在每个步骤中执行的工具。在表中，红色高亮表示幻觉，橙色高亮表示 OctoTools 在执行后试图获取的不正确信息。我们观察到，首次调用 Route Tool 时，使用相同的起点和终点，导致信息检索不准确。此外，表第 2 行至第 5 行中显示的后续九次调用表明存在幻觉，并使用了与问题无关的参数，揭示出缺乏正确的工具调用。尽管存在一个能够在单次调用中提供所有相关信息的行程工具，但它没有被正确执行。
+• Octotools 最终输出：为了确定从 Rydges Wellington 出发并返回 Rydges Wellington、途中停靠 Kelburn Park 和 Victoria University of Wellington 的往返总旅行时间，采取了以下步骤：
+步骤 1：分析查询 查询指定了一次往返行程：1. 从 **Rydges Wellington** 出发。2. 访问 **Kelburn Park**。3. 前往 **Victoria University of Wellington**。4. 返回 **Rydges Wellington**。交通方式为驾车。
+步骤 2：使用 Route Tool 使用 **Route Tool** 计算指定路线的总驾车时间。该工具提供了以下结果：- **总路线距离**：1.9 公里。- **总驾车时间**：9 分钟。
+步骤 3：验证路线详情 路线详情确认驾车时间包括行程的所有路段：- Rydges Wellington → Kelburn Park。- Kelburn Park → Victoria University of Wellington。- Victoria University of Wellington → Rydges Wellington。
+
+1307

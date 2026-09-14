@@ -1,0 +1,50 @@
+评分：4.2
+类型：住宿、兴趣点、机构
+当前是否营业：是
+工作日营业时间：
+- 星期一：24 小时营业
+- 星期二：24 小时营业
+- 星期三：24 小时营业
+- 星期四：24 小时营业
+- 星期五：24 小时营业
+- 星期六：24 小时营业
+- 星期日：24 小时营业
+Kelburn Park
+名称：Kelburn Park
+地址：Salamanca Road, Kelburn, Wellington 6012, New Zealand
+评分：4.4
+类型：公园、旅游景点、兴趣点、机构
+当前是否营业：是
+工作日营业时间：
+- 星期一：24 小时营业
+- 星期二：24 小时营业
+- 星期三：24 小时营业
+- 星期四：24 小时营业
+- 星期五：24 小时营业
+- 星期六：24 小时营业
+- 星期日：24 小时营业
+Victoria University of Wellington
+名称：Victoria University of Wellington
+地址：Kelburn Parade, Kelburn, Wellington 6012, New Zealand
+评分：4.3
+类型：大学、兴趣点、机构
+当前是否营业：N/A
+工作日营业时间：
+- 未知
+从 Rydges Wellington 到 Kelburn Park 的旅行时间（距离）为 5 分钟（1.6 km）
+从 Rydges Wellington 到 Victoria University of Wellington 的旅行时间（距离）为 1 分钟（1 m）
+从 Kelburn Park 到 Rydges Wellington 的旅行时间（距离）为 4 分钟（1.4 km）
+从 Kelburn Park 到 Victoria University of Wellington 的旅行时间（距离）为 4 分钟（1.4 km）
+从 Victoria University of Wellington 到 Rydges Wellington 的旅行时间（距离）为 1 分钟（1 m）
+从 Victoria University of Wellington 到 Kelburn Park 的旅行时间（距离）为 5 分钟（1.6 km）
+• 由 Solution Generator 模块生成的解决方案：要计算整个行程的总时间，我们需要考虑从 Rydges Wellington 到 Kelburn Park 的旅行时间，然后是从 Kelburn Park 到 Victoria University of Wellington 的旅行时间，最后是从 Victoria University of Wellington 返回 Rydges Wellington 的返程时间。
+从 Rydges Wellington 到 Kelburn Park 的旅行时间是 5 分钟。从 Kelburn Park 到 Victoria University of Wellington 的旅行时间是 4 分钟。从 Victoria University of Wellington 返回 Rydges Wellington 的返程时间是 1 分钟。
+将这些时间相加，整个行程的总时间是 5 + 4 + 1 = 10 分钟。
+所以，答案是 10 分钟。最可能的选项是“答案是 B”
+• 由 Answer Generator 模块生成的答案：B. 10 mins
+B MapAgent 中的配置
+B.1 Map-Tool Agent
+Map-Tool Agent 的提示词
+你是一个 agent，旨在理解用户问题并使用特定工具检索相关信息。当用户提出问题时，你的任务是从可用列表（Trip Tool、Route Tool、Nearby 和 PlaceInfo）中识别出最能回答该查询的合适工具。然后你将使用该工具获取信息，并将检索到的数据提供给用户。
+你不应直接回答问题；你的角色仅仅是使用指定工具检索必要信息。例如，如果你认为需要使用多个工具，可以并行使用它们。
+1309

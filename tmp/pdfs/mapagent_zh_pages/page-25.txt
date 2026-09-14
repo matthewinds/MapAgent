@@ -1,0 +1,40 @@
+Listing 5：MapAgent 回答 MapEval-Visual Nearby 查询的示例 绿色：正确答案。红色：错误答案。
+上下文：
+问题：
+哪座城堡距离 Howth 火车站最近？
+选项：A.Howth Castle B . Mary Castle C . Claremont Castle D . Balscadden House
+Planner agent 选择的模块：
+从模块目录中选择的模块及其执行顺序：
+1. v i s u a l _ p l a c e _ r e c o g n i z e r 模块
+2. map_service 模块
+3. s o lu t i on _ g en e r at o r 模块
+4. a nswer_ge nerator 模块
+Visual Place Recognizer 模块输出：
+图像的中心似乎是爱尔兰的 Howth。
+Map Service 模块输出：
+执行 map_service 模块时，它连接到内层（Inner Layer）中的 map-tool agent。
+Map-Tool Agent 输出：
+选择 Nearby 工具以获取信息。
+Nearby 工具的输出：
+从当前位置 Howth Market , 3 Harbour Rd , Howth , Dublin , D13 T8Y7 , Ireland 出发，15 公里范围内有以下一些城堡距离：
+Howth Castle Estate（距离：0. 4 7 70 5 7 68 7 9 84 5 4 42 公里，评分：4.1，评论总数：714）
+Malahide Castle & Gardens（距离：8. 74 29 73 877 91 61 25 公里，评分：4.6，评论总数：15235）
+Dublin Castle（距离：1 3 .8 7 5 69 7 8 94 0 2 49 6 1 公里，评分：4.3，评论总数：33876）
+Swords Castle（距离：1 2 .5 4 8 38 7 0 08 4 0 38 0 4 公里，评分：4.5，评论总数：1764）
+Dalkey Castle & Heritage Centre（距离：1 2 . 50 5 5 23 3 5 49 3 3 82 8 公里，评分：4.6，评论总数：911）
+Monkstown Castle（距离：1 2. 2 3 54 5 2 66 7 3 77 2 0 6 公里，评分：4.4，评论总数：104）
+Clontarf Castle Hotel（距离：9.267242 43435518 公里，评分：4.5，评论总数：5073）
+Sandycove Castle（距离：11 .6217343 658077 公里，评分：4.5，评论总数：24）
+Castle（距离：6. 94 31 23 269 96 79 69 公里，评分：4，评论总数：2）
+Wooden Castle（距离：8. 66 25 82 766 43 53 69 公里，评分：4.6，评论总数：11）
+Lambay Castle（距离：1 1 .9 0 1 97 3 3 02 2 9 07 7 2 公里，评分：4.3，评论总数：27）
+Sutton Castle（距离：2 . 32 0 6 82 4 1 79 5 0 92 0 7 公里，评分：4.2，评论总数：9）
+Archbold ’ s Castle（距离：1 2 .5 0 73 6 3 73 2 0 93 6 9 7 公里，评分：4.3，评论总数：8）
+solution generator 模块的输出：
+基于提供的地图和 Google Maps 上下文，距离 Howth 火车站最近的城堡是 Howth Castle，它距离 Howth 火车站仅 0.477 公里。
+因此，正确答案是 A . Howth Castle
+answer generator 模块的输出：
+基于 solution generator 的响应，答案应该是 Howth Castle，这看起来合乎逻辑且正确。答案是 A. Howth Castle。
+评论：
+最终答案 A . Howth Castle 是正确答案
+1320

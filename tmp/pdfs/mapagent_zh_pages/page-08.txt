@@ -1,0 +1,33 @@
+数据集 Planner Agent Map-Tool Agent 总体误差(%)模块选择 工具调用 参数传递
+MapEval-API 1.33 0.76 1.46 3.55
+MapEval-Textual 0.67 1.02 0.93 2.62
+MapQA 0.89 1.56 1.78 4.23
+MapEval-Visual 2.5 0.66 1.2 4.36
+表 8：MapAgent 的详细误差分析。我们报告了 Planner Agent（模块选择）和 Map-Tool Agent（工具调用与参数传递）在全部四个评估基准上贡献的具体错误率（%）。
+6 成本分析
+我们针对基线 Chameleon 和 Octotools，在四个关键指标上评估了 MapAgent 的计算效率：LLM API 调用频率、总 token 消耗量、Google Maps API 使用量以及端到端执行延迟。图 3 汇总了所有数据集上的平均资源消耗，表明 MapAgent 始终实现最低的成本概况。
+这种效率源于系统之间根本性的架构差异。Chameleon 依赖顺序执行模型，解决单个查询需要在不同阶段进行多次不同的 LLM API 调用——包括为各个模块（例如 Nearby、Trip、Route）提取参数、解决方案规划和答案生成。这种顺序依赖关系同时加剧了 API 调用次数和整体延迟。类似地，Octotools 采用迭代式、来回往复的推理过程。虽然灵活，但这种方法本质上会产生额外的 LLM 和 Google Maps API 交互，导致更高的平均延迟。
+相比之下，MapAgent 在其内部 Map-Tool Agent 中利用了并行执行框架。通过使系统能够在单次 LLM API 调用中同时执行多个工具，MapAgent 消除了为每次工具调用进行单独交互的需要。这一架构优势大幅减少了 API 调用总数和执行时间，确保在所有评估配置下实现更快、更高效的查询解析。有关成本分析细分的进一步统计细节见附录 D。
+7 误差分析与挑战
+为了精准定位 MapAgent 剩余的挑战，我们进行了细粒度的误差分析，考察框架各个阶段的具体错误类型。
+Octotools Chameleon MapAgent
+方法
+0.0
+2.5
+5.0
+7.5
+10.0
+12.5
+15.0
+17.5
+20.0平均值
+指标
+LLM API 调用
+Token（K）
+Google Map API 调用
+执行时间（秒）
+图 3：MapAgent 与 Chameleon 和 Octotools 的总体成本分析比较。MapAgent 在全部四个指标上实现了更低的资源消耗：LLM API 调用、Token 使用量、Google Maps API 调用和执行时间。
+如图 4 所示，MapAgent 在四个地理空间基准上呈现出平均错误百分比。虽然平均错误率并不显著，但 MapEval-Visual 数据集约为 4.36%，MapQA 为 4.24%，MapEval-API 为 3.55%，MapEval-Textual 为 2.62%。此外，表 8 详细列出了归因于 MapAgent 内各组件的平均错误百分比。我们的分析揭示了几个关键错误来源：
+Planner Agent：虽然总体准确，但 Planner Agent 偶尔无法从其清单中选择合适的模块。我们观察到不同任务的错误率有所差异：MapEval-Textual 约为 0.67%，MapQA 为 0.89%，MapEval-API 为 1.33%，MapEval-Visual 为 2.5%。这些错误通常源于错误的组件选择或操作顺序。
+Map-Tool Agent：该 agent 可能遇到两种潜在类型的错误：获取错误的工具或向这些工具传递不恰当的参数。虽然错误率并不显著，但详见表 8。
+1303

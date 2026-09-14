@@ -1,0 +1,28 @@
+模块 描述
+Map Service 使用名为 Map-Tool Agent 的 Coordinator Agent 获取地理空间数据。
+检索地点详情、路线、附近位置及其他地图相关信息。
+Visual Place
+Recognizer 使用 VLLM 分析地理空间影像。识别中心地理地点并估计地理范围（近似半径）。
+Sequencer 将前述模块的响应组织并结构化为逻辑序列。
+Solution Generator 使用 LLM 或 VLLM 基于结构化输入合成最终答案。
+Answer Generator 对 Solution Generator 产生的解决方案进行精炼和验证。提取并检查预测答案的一致性。
+表 10：Module Inventory 中对于解决地理空间查询必不可少的模块
+工具 描述
+Trip Tool 检索位置信息及它们之间的旅行路线。结合 Place Details 和 Directions API 获取地点元数据和逐步路线指引。
+Route Tool 使用 Directions API 获取两点之间的路线信息，包括距离、预计时间和导航步骤。
+Nearby Tool 使用 Nearby Search API 识别指定区域内的兴趣点。返回地点名称、评分及其他元数据。
+PlaceInfo Tool 使用 Place Details API 检索给定地点的详细信息，包括地址、营业时间、联系信息和评论。
+表 11：MapAgent 框架使用的地图工具，每个工具都构建在特定的 Google Maps API 之上。
+LLM Backbone 数据集 Chameleon Octotools MapAgent (Ours)
+GPT-3.5-Turbo
+MapEval-API 7.0 12.0 6.0
+MapEval-Textual 6.5 11.0 5.5
+MapQA 6.0 10.0 5.0
+Qwen-2.5-72B
+MapEval-API 7.0 12.0 6.0
+MapEval-Textual 6.5 11.0 5.5
+MapQA 6.0 10.0 5.0
+GPT-4o MapEval-Visual 8.0 14.0 7.0
+Qwen-2.5-VL-72B MapEval-Visual 8.0 14.0 7.0
+表 12：不同数据集和骨干模型下每次查询的平均 LLM API 调用次数比较。MapAgent 始终表现出更高的效率，所需 LLM API 交互次数少于基线。
+1314

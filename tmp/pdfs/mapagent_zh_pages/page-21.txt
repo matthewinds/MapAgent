@@ -1,0 +1,68 @@
+Listing 1：MapAgent 回答查询的示例 绿色：正确答案。红色：错误答案。
+问题：
+我目前在 Planetshakers Church Melbourne City Campus。我想开车去 Carrot Tattoo Studio，然后去 Melbourne Lifestyle Apartments - Docklands Accommodation。这会花多长时间？
+选项：A. 18 mins B. 19 mins C. 20 mins D. 21 mins
+Planner agent 选择的模块：
+1. Map Service
+2. Solution Generator
+3. Answer Generator
+Map Service 模块通过 Map-Tool Agent（调用 Trip tool）收集的信息：
+所有位置信息：
+Planetshakers Church Melbourne City Campus
+名称：Planetshakers Church Melbourne City Campus
+地址：400 City Rd, Southbank VIC 3006, Australia
+评分：4.8
+类型：church, tourist_attraction, place_of_worship, point_of_interest, establishment
+当前是否营业：False
+工作日营业时间：
+- Monday：Closed
+....
+....
+- Saturday：Closed
+- Sunday：9:00 AM - 8:00 PM
+Carrot Tattoo Studio
+名称：Carrot Tattoo Studio
+地址：Basement /63 Elizabeth St, Melbourne VIC 3000, Australia
+评分：5
+类型：store, point_of_interest, establishment
+当前是否营业：False
+工作日营业时间：
+- Monday：10:00 AM - 8:00 PM
+- Tuesday：10:00 AM - 8:00 PM
+....
+....
+- Sunday：10:00 AM - 8:00 PM
+Melbourne Lifestyle Apartments - Docklands Accommodation
+名称：Melbourne Lifestyle Apartments - Best Views on Collins
+地址：893 A Collins St, Docklands VIC 3008, Australia
+评分：4.8
+类型：lodging, point_of_interest, establishment
+当前是否营业：True
+工作日营业时间：
+- Monday：Open 24 hours
+- Tuesday：Open 24 hours
+....
+....
+从 Planetshakers Church Melbourne City Campus 到 Carrot Tattoo Studio 的行程时间（距离）为 9 mins
+（2.0 km）
+从 Planetshakers Church Melbourne City Campus 到 Melbourne Lifestyle Apartments
+- Docklands Accommodation 的行程时间（距离）为 8 mins（2.5 km）
+从 Carrot Tattoo Studio 到 Planetshakers Church Melbourne City Campus 的行程时间（距离）为 9 mins
+（1.9 km）
+....
+....
+从 Melbourne Lifestyle Apartments - Docklands Accommodation 到 Carrot Tattoo
+Studio 的行程时间（距离）为 11 mins（2.7 km）
+solution_generator 模块生成的解答：
+为了确定从 Planetshakers Church Melbourne City Campus 到 Carrot Tattoo Studio，
+然后到 Melbourne Lifestyle Apartments - Docklands Accommodation 的总行程时间，我们需要将
+每一段行程的行程时间相加。
+1. **从 Planetshakers Church Melbourne City Campus 到 Carrot Tattoo Studio：**
+- 行程时间：9 minutes
+2. **从 Carrot Tattoo Studio 到 Melbourne Lifestyle Apartments - Docklands Accommodation：**
+- 行程时间：10 minutes
+现在，我们将这些行程时间相加：
+9 minutes + 10 minutes = 19 minutes
+因此，总行程时间是 19 minutes。
+answer_generator 模块提取出的正确选项：B.19 minutes
+1316

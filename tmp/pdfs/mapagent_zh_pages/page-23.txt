@@ -1,0 +1,44 @@
+Listing 3: MapAgent 回答 MapEval-Visual Route 查询的示例 绿色：正确答案。红色：错误答案。
+上下文：
+问题：
+在 Cole Street Guesthouse 吃完午饭后，如何从 Seabird Water Taxi 前往 Sierra Leone Grammer School？
+选项：
+A . Seabird Water Taxi -> 沿 High Broad St 向西北方向朝 Andrews St 行进 -> 左转进入 Andrews St ->
+继续进入 Andrew St -> 右转进入 Macaulay St -> Sierra Leone Grammar School -> 沿 Macaulay St 向东北方向行进 ->
+在第 1 个十字路口左转朝 Cole St 方向 -> 在第 2 个十字路口左转进入
+Cole St -> Cole Street Guesthouse
+B . Seabird Water Taxi -> 沿 High Broad St 向西北方向朝 Andrews St 行进 -> 左转进入 Andrews St ->
+继续进入 Andrew St -> 右转进入 Macaulay St -> Sierra Leone Grammar School
+C . Seabird Water Taxi -> 沿 High Broad St 向西北方向朝 Andrews St 行进 -> 左转进入 Macaulay St ->
+Sierra Leone Grammar School -> 沿 Macaulay St 向东北方向行进 -> 在第 1 个十字路口左转朝
+Cole St 方向 -> 在第 2 个十字路口左转进入 Cole St -> Cole Street Guesthouse
+D. Seabird Water Taxi -> 沿 High Broad St 向西北方向朝 Andrews St 行进 -> 右转朝 Cole St 方向 ->
+在第 1 个十字路口左转进入 Cole St -> Cole Street Guesthouse -> 沿 Cole St 向东北方向朝
+Damba Rd 行进 -> 在第 1 个十字路口右转朝 Macaulay St 方向 -> 在第 2 个十字路口右转
+进入 Macaulay St -> Sierra Leone Grammar School
+Planner agent 选择的模块：
+从模块目录中选择的模块及其执行顺序：
+1. Visual Place Recognizer 模块
+2. map_service 模块
+3. s o lu t i on _ g en e r at o r 模块
+4. a nswer_ge nerator 模块
+Image Search 模块输出：
+该图像中心表示 Cole Street Guesthouse，5 Cole St，Freetown，Sierra Leone 的位置。
+Map Service 模块输出：
+执行 map_service 模块时，它连接到 Inner Layer 中的 map - tool agent。
+Map-Tool Agent 输出：
+选择 Route tool 来获取信息。
+Route Tool 的输出：
+从 Seabird Water Taxi，Freetown，Sierra Leone 到 Sierra Leone Grammar
+School，Freetown，Sierra Leone 共有 1 条路线，途中经过 Cole Street Guesthouse。路线信息提供
+如下：
+Route 1:( VIA ) High Broad St (0.4 km，5 mins )
+详细步骤如下：
+沿 High Broad St 向西北方向朝 Andrews St 行进 (0.3 km，4 mins )
+右转朝 Cole St 方向 (56 m，1 min )
+左转进入 Cole St 目的地将在左侧 (46 m，1 min )
+沿 cole st 向东北方向朝 Damba Rd 行进 (46 m，1 min )
+在第 1 个十字路口右转朝 Macaulay St 方向 (110 m，1.5 min )
+在第 2 个十字路口右转进入 Macaulay St (260 m，2 min )
+Sierra Leone Grammar School
+1318

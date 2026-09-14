@@ -1,0 +1,30 @@
+Listing 4：MapAgent 如何回答 MapEval-Visual Route 查询的示例续篇 绿色：正确答案。
+红色：错误答案。
+solution generator 模块的输出：
+基于提供的地图和 Google Maps 上下文，最佳路径点是：
+沿 High Broad St 向西北方向前进，朝 Andrews St 方向
+向右转，朝 Cole St 方向
+向左转进入 Cole St目的地将在左侧
+沿 cole st 向东北方向前进，朝 Damba Rd 方向
+在第 1 个十字路口向右转，朝 Macaulay St 方向
+在第 2 个十字路口向右转进入 Macaulay St
+Sierra Leone Grammar School
+因此正确答案是：
+**( D ) Seabird Water Taxi
+沿 High Broad St 向西北方向前进，朝 Andrews St 方向
+向右转，朝 Cole St 方向
+在第 1 个十字路口向左转进入 Cole St
+Cole Street Guesthouse
+沿 Cole St 向东北方向前进，朝 Damba Rd 方向
+在第 1 个十字路口向右转，朝 Macaulay St 方向
+在第 2 个十字路口向右转进入 Macaulay St
+Sierra Leone Grammar School **
+answer generator 模块的输出：
+基于 solution generator 的响应，答案应为 D，这看起来合乎逻辑且正确。
+答案是 D。Seabird Water Taxi -> 沿 High Broad St 向西北方向前进，朝 Andrews St 方向 -> 向右转
+朝 Cole St 方向 -> 在第 1 个十字路口向左转进入 Cole St -> Cole Street Guesthouse -> 沿 Cole St 向东北方向
+前进，朝 Damba Rd 方向 -> 在第 1 个十字路口向右转，朝 Macaulay St 方向 -> 在第 2
+个十字路口向右转进入 Macaulay St -> Sierra Leone Grammar School
+评论：
+最终答案 D 是正确答案
+1319

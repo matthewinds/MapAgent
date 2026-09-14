@@ -1,0 +1,22 @@
+Listing 6：示例 1，VLLM 如何使用 API 猜出正确答案。绿色：正确答案。红色：错误答案。
+上下文：
+问题：
+地图下半部分可以看到多少座教堂？
+选项：A. 五座 B. 两座 C. 四座 D. 三座
+使用 API（MapAgent）的响应：
+Google Map 响应：
+在瑞典斯德哥尔摩 113 57，Radmansgatan 46 这一位置 0.8 公里范围内有一些教堂，如下所示：
+City Church（距离：0.46526450497253263 公里，评分：4.6，总评论数：94）
+St. Peter’s Church, Stockholm（距离：0.584886996790922 公里，评分：4.5，总评论数：42）
+Adolf Fredriks Forsamling（距离：0.36249979086127565 公里，评分：4.5，总评论数：341）
+来自解答生成器的最终答案：
+“根据所提供的地图以及 google map 模块的上下文，地图下半部分可见的教堂是：”
+“1. St. Peter’s Church, Stockholm”
+“2. Adolf Fredriks Frsamling”
+“3. City Church”
+“因此，正确答案是：(D) 三座**”
+不使用 API（Base Model）的响应：
+根据所提供的地图，地图中有四座可见的教堂。因此，答案是：(C) 四座。
+观察：
+正确答案应该是 D. 三座，API 版本可以预测到，但没有 API 的 base model 无法回答。
+1321

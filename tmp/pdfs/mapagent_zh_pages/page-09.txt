@@ -1,0 +1,26 @@
+MapEval-Textual MapEval-API MapQA MapEval-Visual
+Geospatial Benchmarks
+0
+1
+2
+3
+4
+5Average Overall Cascade Error (%)
+2.62
+3.55
+4.23 4.36
+Figure 4: MapAgent 在四个地理空间基准上的平均总体级联误差（%）。结果表明，即使在 MapEval-Visual 等复杂任务上，该系统仍保持较低的误差传播率（< 4.5%）。
+8 更广泛的影响与伦理考量
+尽管 MapAgent 是为城市导航和位置发现等良性应用而设计的，但我们认识到，先进的地理空间推理系统具有两用风险（Hovy et al., 2016）。
+两用关切。我们的系统处理模糊位置描述并自主执行复杂空间查询的能力，可能被滥用于监视或军事目的。那些帮助用户寻找餐厅或规划路线的相同能力，理论上也可以被改造用于追踪个人或支持瞄准系统。我们强烈反对在侵犯隐私权或助长有害应用的场景中部署该系统。
+数据偏差与公平性。MapAgent 依赖商业地图 API，而这些 API 可能包含固有偏差。如果这些来源对某些街区或群体代表性不足，我们的系统可能会通过将用户引导远离记录不足的地区，无意中强化这些差距。这会造成导航不公平和信息获取不平等的风险。开发者应审查其数据源是否存在偏差，并在可能的情况下实施纠正。
+隐私考量。任何地理空间推理系统的部署都应通过知情同意、数据最小化和系统能力透明化来优先保护用户隐私。用户需要了解收集了哪些信息以及他们的查询是如何被处理的。我们建议纳入隐私-by-design（privacy-by-design）原则，并让用户控制自己的数据。
+我们希望通过明确回应这些关切，能够鼓励地理空间 AI 系统的负责任开发，同时将潜在危害降至最低。
+9 结论
+在本文中，我们提出了 MapAgent，一个为有效地理空间推理而设计的分层多智能体（multi-agent）框架。通过将规划与执行解耦，并引入具有定制工具集的专门模块——例如专用的地图工具智能体——MapAgent 解决了扁平化基于智能体的架构所面临的局限，这些架构难以应对工具过载和细粒度 API 协调问题。通过对四个具有挑战性的地理空间基准——MapEval-Textual、MapEval-API、MapEval-Visual 和 MapQA——进行全面评估，MapAgent 始终优于现有的工具增强和智能体基线，包括 Chameleon 和 OctoTools。这些结果证明了 MapAgent 在真实世界、地图集成推理任务中的有效性和泛化能力。在未来工作中，我们计划扩展该框架以支持多智能体协作（Hosain et al., 2025），并处理更广泛的多模态时空推理任务。
+局限性
+尽管我们提出的分层多智能体框架 MapAgent 在各种地理空间查询上相较于最先进的工具增强和智能体基线表现出显著提升，但它目前依赖一组有限的主流 Google Maps API。将框架扩展到支持更广泛的 API 和地图服务，将进一步验证其泛化性和鲁棒性。此外，尽管 MapAgent 具有即插即用（plug-and-play）架构，并有可能应用于其他领域，例如 Web 自动化和软件工程，但其在这些领域中的有效性仍有待评估。
+参考文献
+Sören Auer, Christian Bizer, Georgi Kobilarov, Jens Lehmann, Richard Cyganiak, and Zachary Ives. 2007. Dbpedia: A nucleus for a web of open data. In international semantic web conference, pages 722–735. Springer.
+Zhenni Bi, Kai Han, Chuanjian Liu, Yehui Tang, and Yunhe Wang. 2024. Forest-of-thought: Scaling test-
+1304

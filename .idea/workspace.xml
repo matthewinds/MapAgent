@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0729eccb-f1da-4536-874d-db8630c103a0" name="更改" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="488" />
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
+    {
+      &quot;state&quot;: &quot;OPEN&quot;
+    }
+  ],
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/matthewinds/MapAgent.git&quot;,
+    &quot;accountId&quot;: &quot;72f5c451-d5a8-4de1-92cb-dba1f8c39a1a&quot;
+  }
+}</component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0013169517513651" />
+      <entry key="MS500" value="1.3811852741869073" />
+      <entry key="S2" value="3.2637459815217964" />
+      <entry key="S5" value="5.28054949799371" />
+      <entry key="S10" value="6.694609212691117" />
+      <entry key="S30" value="8.095170415665166" />
+      <entry key="S60" value="8.530174503955749" />
+      <entry key="M2" value="8.980462324786362" />
+      <entry key="M5" value="12.321371459695737" />
+      <entry key="M10" value="20.529932999283147" />
+      <entry key="M15" value="30.618747711824337" />
+      <entry key="M30" value="59.99187824400758" />
+      <entry key="H1" value="96.80863287710129" />
+      <entry key="H2" value="128.0324047151912" />
+      <entry key="H4" value="148.75273120198915" />
+      <entry key="D1" value="169.43346822582873" />
+      <entry key="W1" value="173.3382078630016" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="3.51534352464408E-102" />
+      <entry key="S5" value="2.6205177669297396E-41" />
+      <entry key="S10" value="5.119099302543112E-21" />
+      <entry key="S30" value="1.7234466787108049E-7" />
+      <entry key="S60" value="4.15144299656846E-4" />
+      <entry key="M2" value="0.020387191754013215" />
+      <entry key="M5" value="0.22149863971337166" />
+      <entry key="M10" value="0.5691204002982827" />
+      <entry key="M15" value="0.8633424807047466" />
+      <entry key="M30" value="1.6123805596742167" />
+      <entry key="H1" value="2.6146723368535683" />
+      <entry key="H2" value="3.5389475970717936" />
+      <entry key="H4" value="4.184265733881381" />
+      <entry key="D1" value="4.8502502876601055" />
+      <entry key="W1" value="4.978240335784782" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.9739447966881665" />
+      <entry key="MS500" value="1.374043346789076" />
+      <entry key="S2" value="3.259521839590477" />
+      <entry key="S5" value="5.277433658537827" />
+      <entry key="S10" value="6.692449507321203" />
+      <entry key="S30" value="8.094232959776892" />
+      <entry key="S60" value="8.530082801049748" />
+      <entry key="M2" value="9.000493798543463" />
+      <entry key="M5" value="12.542224735372871" />
+      <entry key="M10" value="21.097927638191177" />
+      <entry key="M15" value="31.480543039409078" />
+      <entry key="M30" value="61.602236924549395" />
+      <entry key="H1" value="99.42150025121107" />
+      <entry key="H2" value="131.57011413776226" />
+      <entry key="H4" value="152.936266863301" />
+      <entry key="D1" value="174.2835784234767" />
+      <entry key="W1" value="178.31642769009306" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="3Il0iEWGAY0ZV2nVpuTZObR06mZ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.MapAgent.executor&quot;: &quot;Run&quot;,
+    &quot;Python.parallel_function_implementation.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.prompt_ca.executor&quot;: &quot;Run&quot;,
+    &quot;Python.pydevd.executor&quot;: &quot;Run&quot;,
+    &quot;Python.run.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;ai.playground.ignore.import.keys.banner.in.settings&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;python.packages.toolwindow.project.migrated.to.right.top.v2&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-PY-262.10315.174" />
+        <option value="bundled-python-sdk-eff1e8def5f5-5bd6d13a2a75-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-262.10315.174" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="0729eccb-f1da-4536-874d-db8630c103a0" name="更改" comment="" />
+      <created>1788323972955</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1788323972955</updated>
+      <workItem from="1788323973958" duration="377000" />
+      <workItem from="1788330998429" duration="1239000" />
+      <workItem from="1788765258234" duration="8000" />
+      <workItem from="1788873505453" duration="3035000" />
+      <workItem from="1788935210928" duration="4178000" />
+      <workItem from="1789109194014" duration="8426000" />
+      <workItem from="1789202028284" duration="435000" />
+      <workItem from="1789202472246" duration="792000" />
+      <workItem from="1789203275375" duration="3621000" />
+      <workItem from="1789206981399" duration="95000" />
+    </task>
+    <task id="LOCAL-00001" summary="做了将openAI替换成DeepSeek的适配变更">
+      <option name="closed" value="true" />
+      <created>1789206155471</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1789206155471</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="做了将openAI替换成DeepSeek的适配变更" />
+    <option name="LAST_COMMIT_MESSAGE" value="做了将openAI替换成DeepSeek的适配变更" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/MapAgent$prompt_ca.coverage" NAME="prompt_ca 覆盖结果" MODIFIED="1788874017681" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/demos" />
+    <SUITE FILE_PATH="coverage/MapAgent$parallel_function_implementation.coverage" NAME="parallel_function_implementation 覆盖结果" MODIFIED="1788332176566" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MapAgent$pydevd.coverage" NAME="pydevd 覆盖结果" MODIFIED="1788332222616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_HOME_DIR$/plugins/python-ce/helpers/pydev" />
+    <SUITE FILE_PATH="coverage/MapAgent$MapAgent.coverage" NAME="MapAgent 覆盖结果" MODIFIED="1789117377521" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/MapAgent$run.coverage" NAME="run 覆盖结果" MODIFIED="1789114386516" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+  </component>
+</project>

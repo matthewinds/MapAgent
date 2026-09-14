@@ -1,0 +1,34 @@
+Listing 2: MapAgent 如何回答 MapEval-Visual 计数查询的示例 绿色：正确答案。红色：错误答案。
+上下文：
+问题：
+地图下半部分可以看到多少座教堂？
+选项：A. 五座 B. 两座 C. 四座 D. 三座
+Planner agent 选择的模块：
+从模块目录中选择的模块及其执行顺序：
+1. Visual Place Recognizer 模块
+2. map_service 模块
+3. solution_generator 模块
+4. answer_generator 模块
+Visual Place Recognizer 模块输出：
+该图像中心表示瑞典斯德哥尔摩 Radmansgatan 46, 113 57 的位置。
+Map Service 模块输出：
+执行 map_service 模块时，它会连接到内层（Inner Layer）中的 map-tool agent。
+Map-Tool Agent 输出：
+选择 Nearby 工具来获取信息。
+Nearby 工具的输出：
+在瑞典斯德哥尔摩 Radmansgatan 46, 113 57 位置 0.8 公里范围内有一些教堂，如下所示：
+City Church（距离：0.46526450497253263 公里，评分：4.6，评论者总数：94）
+St. Peter’s Church, Stockholm（距离：0.584886996790922 公里，评分：4.5，评论者总数：42）
+Adolf Fredriks Forsamling（距离：0.36249979086127565 公里，评分：4.5，评论者总数：341）
+solution generator 模块的输出：
+根据提供的地图和 Google Maps 上下文，下半部分可见的教堂是：
+St. Peter’s Church, Stockholm
+Adolf Fredriks Forsamling
+City Church
+因此，正确答案是 B. 三座。
+answer generator 模块的输出：
+根据 solution generator 的响应，答案应为 3，这看起来合乎逻辑且正确。
+答案是 B. 三座。
+评论：
+最终答案 B. 3 是正确答案
+1317

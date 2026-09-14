@@ -1,0 +1,41 @@
+B.2 解决方案生成器（MapEval-API）
+解决方案生成器的提示词
+给定问题（以及上下文），从选项 ["A"、"B"、"C"、"D"] 中选择答案。你应当给出简洁且分步的解答。最后，以 "the answer is [ANSWER]" 的格式得出结论，其中 [ANSWER] 是选项 ["A"、"B"、"C"、"D"] 中的一个。例如，"the answer is A"、"the answer is B"、"the answer is C" 或 "the answer is D"。如果答案不在选项中，则声明为 Unanswerable。
+# 示例 1
+问题：Multiplan Center 的地址是什么？
+选项：(A) 69, 71 New Elephant Rd, Dhaka 1205, Bangladesh (B) 38/1/C BC DAS Street Lalbagh (C) Polashi,BUET (D) Central Road, USA
+元数据：{"skill":"Fetch context from corresponding google map api and based on the context answer the question"}
+Google Maps 响应：
+名称：Multiplan Center
+地址：69, 71 New Elephant Rd, Dhaka 1205, Bangladesh
+评分：4.4
+类型：point_of_interest, establishment
+当前是否营业：False
+工作日营业时间：
+- 星期一：10:00AM–8:00PM
+- 星期二：Closed
+- 星期三：10:00AM–8:00PM
+- 星期四：10:00AM–8:00PM
+- 星期五：10:00AM–8:00PM
+- 星期六：10:00AM–8:00PM
+- 星期日：10:00AM–8:00PM
+解答：如果你查看上下文并搜索，那么在到达之后，Multiplan Center 的地址是 69, 71 New Elephant Rd, Dhaka 1205, Bangladesh。因此，the answer is B。
+.... <另外 4 个示例> ....
+现在回答以下问题。
+# 问题：{question}
+B.3 视觉地点识别器
+视觉地点识别器的提示词
+我将为你提供一张图像。你必须确定图像内的精确中心位置，并通过从中心预测一个半径来预测图像的边界。你的返回格式应为：中心位置名称后跟一个空格，然后是半径。在此基础上，仅提供一个完整地址，采用单一、一致的格式，后跟一个空格和一个半径。不要在地址之前或之后包含任何多余文本。
+C 详细工具参数
+以下部分概述了 Map Service 模块所使用的工具，这些工具由 map-tool agent 检索得到。每个工具都与其输入参数一起定义。
+Trip Tool
+current_location (str)：行程的起始位置。
+visiting_places (list)：要访问的位置列表。
+travel_mode (str)：出行方式，默认为 driving。
+Route Tool
+origin (str)：路线的起始位置。
+destination (str)：路线的目的地。
+travel_mode (str)：出行方式，默认为 driving。
+mode (str)：用于路线的交通方式，例如 "driving"
+alternatives (bool)：是否返回多条可能路线。
+1310

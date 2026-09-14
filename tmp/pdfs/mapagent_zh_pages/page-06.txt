@@ -1,0 +1,28 @@
+VLM
+MapEval-Visual
+方法 总体 地点 信息 附近 路线规划 计数 无法回答
+GPT-4o
+Base Model 58.90 76.86 57.78 50.00 47.73 40.00
+ReAct 58.50 78.28 58.24 52.29 53.11 0.00
+LLMCompiler 61.88 81.29 60.80 54.42 55.22 0.00
+Chameleon 62.51 82.44 62.77 55.67 57.18 5.00
+Octotools 64.54 84.20 64.53 53.44 61.36 5.00
+MapAgent 68.95 88.64 63.54 62.50 63.63 25.00
+Qwen-2.5-VL-72B
+Base Model 60.35 76.86 54.44 43.04 52.33 60.00
+ReAct 59.18 74.54 54.40 56.40 55.40 10.00
+LLMCompiler 64.28 82.50 61.80 58.88 59.80 10.00
+Chameleon 66.40 83.46 64.32 59.30 62.35 15.00
+Octotools 69.50 88.78 66.48 63.22 64.28 20.00
+MapAgent 72.30 89.45 66.25 67.50 66.50 40.00
+表 5：不同方法和骨干模型在 MapEval-Textual 数据集上的准确率（%）。
+基于通过 API 检索到的结构化数据。
+MapEval-Visual：给定一个用户查询和一张数字地图快照，其中展示了空间布局、路线、地标、OCR 文本（例如评分）以及符号元素（例如图标或标志），任务是基于视觉上下文回答该查询。
+MapQA（Li et al., 2025）：一个地理空间问答基准，使用 SQL 查询模板从 OpenStreetMap 构建。它包含覆盖九种推理类型（例如邻域推断、空间邻近性、类型分类）的问答对，并以真实世界地理实体几何为基础。
+4.2 基线（Baseline）与指标（Metric）
+MapAgent 是一个多智能体组合推理框架。因此，我们将其性能与智能体框架进行比较，例如 ReAct（Yao et al., 2023）和 LLMCompiler（Kim et al., 2024），以及与组合推理框架进行比较，例如 Chameleon（Lu et al., 2023）和 OctoTool（Lu et al., 2025）。对于 MapEval-API、MapEval-Textual 和 MapQA 数据集，我们使用 GPT-3.5-Turbo（?）和 Qwen-2.5-72b（?）。对于 MapEval-Visual 数据集，我们使用通过 vLLM 提供的模型，具体为 GPT-4o（?）和 Qwen-2.5-VL-72b（?）。我们使用准确率评估模型性能，以百分比表示。
+4.3 结果
+对 MapAgent 框架在四个不同且具有挑战性的地图相关数据集上的评估揭示了其在准确率方面的显著进步，持续优于现有的智能体方法，并展现出无论底层语言模型骨干如何都具有稳健的性能。这些发现强调了 MapAgent 作为广泛地图查询处理任务的稳健解决方案的有效性。
+跨基准的显著提升 在所有评估的数据集上，MapAgent 框架始终实现高准确率。在表 2 的 MapEval-API 数据集上，MapAgent 在由 GPT-3.5-Turbo 和 Qwen-2.5-72B 驱动时，分别实现了约 70% 和 72% 的总体准确率。类似地，在表 3 的 MapEval-Textual 数据集上，MapAgent 使用 GPT-3.5-Turbo 达到 72.94% 的准确率，使用 Qwen-2.5-72B 达到 76.24%。表 5 中的 MapEval-Visual 结果进一步强化了这一趋势，MapAgent 使用 GPT-4o 实现了最高的总体准确率——68.95%，使用 Qwen-2.5-VL-72B 为 72.30%。最后，在表 6 的 MapQA 基准上，MapAgent 使用 GPT-3.5-Turbo 实现了 55.58% 的最高总体准确率，使用 Qwen-2.5-72B 为 55.93%。
+超越先前方法 MapAgent 的性能在所有评估的数据集和语言模型上持续超越其他突出方法，包括 OctoTools、Chameleon、ReAct 和 LLMCompiler——尤其是表现第二好的 OctoTools。在图 5 中，在 MapEval-API 数据集上，MapAgent 在使用 GPT-3.5-Turbo 和 Qwen-2.5-72B 时，分别比 OctoTools 显示出约 10% 和 11.54% 的准确率提升。对于 MapQA 基准，MapAgent 使用 GPT-3.5-Turbo 比 OctoTools 高出约 11.22%，使用 Qwen-2.5-72B 高出 9%。最后，在 MapEval-Textual 数据集上，MapAgent 的准确率
+1301

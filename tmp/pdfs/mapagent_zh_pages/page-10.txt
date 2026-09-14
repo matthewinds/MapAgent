@@ -1,0 +1,103 @@
+用于增强 LLM 推理的测试时计算。arXiv
+e-prints，页码 arXiv–2412。
+Kurt Bollacker, Robert Cook, and Patrick Tufts. 2007.
+Freebase：一个结构化通用人类知识的共享数据库。In AAAI, volume 7, pages 1962–
+1963。
+Nicholas J Car, Timo Homburg, Matthew Perry, John
+Herring, Frans Knibbe, Simon JD Cox, Joseph Abha-
+yaratna, and Mathias Bonduel. 2022. Ogc geosparql-
+一种用于 rdf 数据的地理查询语言。OGC Im-
+plementation Standard., Open Geospatial Consor-
+tium。
+Mahir Labib Dihan, Mohammed Eunus Ali, and
+Md Rizwan Parvez. 2025a. MapQaTor：一个用于高效标注基于地图的
+QA 数据集的可扩展框架。In Proceedings of the 63rd Annual
+Meeting of the Association for Computational Lin-
+guistics (Volume 3: System Demonstrations), pages 1–
+10, Vienna, Austria. Association for Computational
+Linguistics。
+Mahir Labib Dihan, Md Tanvir Hassan, Md Tanvir
+Parvez, Md Hasebul Hasan, Md Almash Alam,
+Muhammad Aamir Cheema, Mohammed Eunus Ali,
+and Md Rizwan Parvez. 2025b. Mapeval：基础模型中基于地图的
+地理空间推理评估。In Forty-second International Confer-
+ence on Machine Learning。
+Yu Du, Fangyun Wei, and Hongyang Zhang. 2024. Any-
+tool：用于大规模 api 调用的自反思、分层智能体。In International Conference on Ma-
+chine Learning, pages 11812–11829. PMLR。
+Xinyu Guan, Li Lyna Zhang, Yifei Liu, Ning Shang,
+Youran Sun, Yi Zhu, Fan Yang, and Mao Yang.
+2025. rstar-math：小型 llm 可以通过自演化深度思考掌握数学推
+理。arXiv preprint
+arXiv:2501.04519。
+Md Tanzib Hosain, Salman Rahman, Md Kishor Morol,
+and Md Rizwan Parvez. 2025. Xolver：像
+奥林匹克团队一样进行整体经验学习的多智能体
+推理。arXiv preprint arXiv:2506.14234。
+Dirk Hovy, Shannon L Spruit, and 1 others. 2016. 自然语言处理的
+社会影响。In The
+54th Annual Meeting of the Association for Compu-
+tational Linguistics Proceedings of the Conference,
+Vol. 2 (Short Papers). Association for Computational
+Linguistics。
+Carlos E Jimenez, John Yang, Alexander Wettig,
+Shunyu Yao, Kexin Pei, Ofir Press, and Karthik
+Narasimhan. 2023. Swe-bench：语言模型
+能解决真实世界的 github 问题吗？arXiv preprint
+arXiv:2310.06770。
+Nikolaos Karalis, Georgios Mandilaras, and Manolis
+Koubarakis. 2019. 用精确地理空间知识扩展 yago2 知识
+图谱。In The
+Semantic Web–ISWC 2019: 18th International Se-
+mantic Web Conference, Auckland, New Zealand, Oc-
+tober 26–30, 2019, Proceedings, Part II 18 , pages
+181–197. Springer。
+Sergios-Anestis Kefalidis, Dharmen Punjani, Eleni
+Tsalapati, Konstantinos Plas, Mariangela Pollali,
+Michail Mitsios, Myrto Tsokanaridou, Manolis
+Koubarakis, and Pierre Maret. 2023. 使用数据集
+geoquestions1089 对地理空间问答引擎进行基准
+测试。In International semantic
+web conference, pages 266–284. Springer。
+Tushar Khot, Harsh Trivedi, Matthew Finlayson, Yao
+Fu, Kyle Richardson, Peter Clark, and Ashish Sab-
+harwal. 2023. 分解式提示：解决复杂任务的模块化
+方法。In The Eleventh
+International Conference on Learning Representa-
+tions。
+Sehoon Kim, Suhong Moon, Ryan Tabrizi, Nicholas
+Lee, Michael W Mahoney, Kurt Keutzer, and Amir
+Gholami. 2024. 用于并行函数
+调用的 llm 编译器。In Forty-first International Conference on
+Machine Learning。
+Zekun Li, Malcolm Grossman, Mihir Kulkarni, Muhao
+Chen, Yao-Yi Chiang, and 1 others. 2025. Mapqa：
+基于地图数据的开放域地理空间问答。arXiv preprint arXiv:2503.07871。
+Pan Lu, Bowen Chen, Sheng Liu, Rahul Thapa, Joseph
+Boen, and James Zou. 2025. Octotools：一个用于复杂推理的、具有可扩展工具的智能体
+框架。In ICLR 2025 Workshop on Foundation Models
+in the Wild。
+Pan Lu, Baolin Peng, Hao Cheng, Michel Galley, Kai-
+Wei Chang, Ying Nian Wu, Song-Chun Zhu, and
+Jianfeng Gao. 2023. Chameleon：使用大型语言模型的即插即用
+组合式推理。Advances in Neural Information Processing Systems ,
+36:43447–43478。
+Gengchen Mai, Weiming Huang, Jin Sun, Suhang Song,
+Deepak Mishra, Ninghao Liu, Song Gao, Tianming
+Liu, Gao Cong, Yingjie Hu, Chris Cundy, Ziyuan Li,
+Rui Zhu, and Ni Lao. 2024. 论基础模型用于 geoai 的机遇与
+挑战（愿景论文）。ACM Trans. Spatial Algorithms Syst., 10(2)。
+Md Rizwan Parvez. 2025. 证据链与证
+据生成：面向上下文接地
+和检索增强推理的提示。In Proceedings
+of the 4th International Workshop on Knowledge-
+Augmented Methods for Natural Language Process-
+ing, pages 230–245, Albuquerque, New Mexico,
+USA. Association for Computational Linguistics。
+Ethan Perez, Patrick Lewis, Wen-tau Yih, Kyunghyun
+Cho, and Douwe Kiela. 2020. 用于问答的无监督问题
+分解。In Proceed-
+ings of the 2020 Conference on Empirical Methods
+in Natural Language Processing (EMNLP) , pages
+8864–8880。
+1305

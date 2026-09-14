@@ -1,0 +1,22 @@
+Nearby Tool
+query (str)：要查找的地理空间地点的搜索词。
+location (str)：当前地点的名称（例如，Ibn Sina Hospital, Dhaka）。
+type (str)：要搜索的地点类型，例如 "restaurant"、"cafe" 或 "hospital"。
+radius (float)：用于过滤的圆形区域半径，默认为 20 公里
+PlaceInfo Tool
+location_address (str)：要搜索的位置的地址或名称。
+D 详细成本分析
+在本节中，我们提供第 6 节中所述成本分析的细粒度分解。我们将 MapAgent 与基线在四个数据集（MapEval-API、MapEval-Textual、MapEval-Visual 和 MapQA）以及四个 LLM 主干（GPT-3.5-Turbo、Qwen-2.5-72B、GPT-4o 和 Qwen-2.5-VL-72B）上进行比较。
+详细结果呈现在以下表格中：
+• 表 12：每次查询的平均 LLM API 调用次数。
+• 表 13：平均 token 消耗量（以千为单位）。
+• 表 14：每次查询的平均 Google Maps API 调用次数。
+• 表 15：平均执行时间（以秒为单位）。
+与总体趋势一致，MapAgent 在每个子类别中都展现出卓越的效率，验证了分层并行架构的可扩展性。
+E 定性示例
+E.1 MapAgent 如何回答查询
+列表 1 和图 6 展示了 MapAgent 如何处理一个典型的地理空间查询。在此示例中，查询取自 trip 类别："I am currently at Planetshakers Church Melbourne City Campus. I want to drive to Carrot Tattoo Studio and then to Melbourne Lifestyle Apartments - Docklands Accommodation. How long will this take?"
+最初，查询被传递给 Planner Agent，它分析查询并选择三个模块来解决它：google_maps、solution_generator 和 answer_generator。随后，google_maps 模块被执行，并尝试通过调用其 map-tool agent 和相关工具从 Google Maps 获取信息。执行随后被移交给 map-tool agent。基于查询，map-tool agent 选择 trip 工具来检索此特定问题所需的信息。trip 工具利用 Directions 和 Place Details API 来获取解决此特定查询的信息。然后 map-tool agent 将此信息返回给 google_maps 模块。Google Maps 模块随后将此信息传递给 solution_generator。基于 google_maps 获取的信息和查询本身，solution_generator 尝试用适当的解释来制定答案，并将其移交给 answer_generator。最后，在验证答案后，answer_generator 从 solution_generator 提供的解释中提取最终答案，并呈现最终输出。通过将任务分解为多个步骤，这种方法解决了 LLM 的长上下文处理限制（Parvez, 2025）。
+E.2 MapAgent 如何回答带有视觉上下文的查询
+列表 2、3、4、5 和图 7 展示了 MapAgent 如何处理包含视觉上下文（例如位置的快照）的地理空间查询的示例。为了解决这类问题，问题和图像由 Planner Agent 处理。Planner Agent 通常选择 Visual Place Recognizer Module、google_maps 模块、solution_generator 模块和 answer_generator 模块。Image Search 模块识别图像中的中心位置并估计其边界，通常提供距中心位置的半径。此位置信息连同原始查询一起被传递给 google_maps 模块。Google Maps 通过其 map-tool agent 和调用 Google Maps API 的工具，从其内层获取进一步的相关信息。最后，与前一个示例类似，解决方案被生成并精炼。
+1311

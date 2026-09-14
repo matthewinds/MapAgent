@@ -1,0 +1,66 @@
+LLM
+MapEval-API
+Method Overall Place Info Nearby Routing Trip Unanswerable
+GPT-3.5-Turbo
+ReAct 27.33 39.06 22.89 33.33 19.40 15.00
+LLMCompiler 44.75 53.13 51.80 48.48 37.10 0.00
+Chameleon 50.45 54.54 54.10 52.00 43.07 5.00
+Octotools 56.27 76.56 62.65 56.06 40.30 5.00
+MapAgent 66.31 88.24 77.05 68.18 49.23 20.00
+Qwen-2.5-72B
+ReAct 41.56 55.44 38.25 42.40 32.75 0.00
+LLMCompiler 49.63 59.25 55.29 51.23 40.77 0.00
+Chameleon 52.70 61.30 60.29 55.77 46.55 10.00
+Octotools 59.40 80.95 71.08 59.09 42.42 0.00
+MapAgent 70.94 89.40 82.85 69.76 54.54 25.00
+表 2：不同方法和骨干模型在 MapEval-API 数据集上的准确率（%）。
+LLM
+MapEval-Textual
+Method Overall Place Info Nearby Routing Trip Unanswerable
+GPT-3.5-Turbo
+Base Model 37.67 26.56 53.01 48.48 28.36 5.00
+ReAct 42.25 42.90 48.18 50.67 35.34 0.00
+LLMCompiler 49.23 58.44 56.98 53.33 40.81 0.00
+Chameleon 56.83 60.77 62.50 57.20 47.38 5.00
+Octotools 62.78 84.22 68.92 61.67 44.33 5.00
+MapAgent 72.94 90.06 82.76 73.23 54.15 20.00
+Qwen-2.5-72B
+Base Model 57.00 62.50 71.08 63.64 41.79 10.00
+ReAct 58.44 64.44 68.25 56.80 46.28 5.00
+LLMCompiler 62.58 74.40 75.38 64.22 48.32 5.00
+Chameleon 65.75 76.40 72.54 70.60 52.26 10.00
+Octotools 70.25 85.55 77.22 67.20 53.30 10.00
+MapAgent 76.24 94.20 84.75 74.80 59.20 20.00
+表 3：不同方法和骨干模型在 MapEval-Textual 数据集上的准确率（%）。
+essential geospatial operations:
+Trip Tool：检索位置信息
+以及它们之间的旅行路线。结合了
+Place Details 和 Directions API，以获取地点
+元数据和逐步路线指引。
+Route Tool：使用 Directions API 获取两点之间的路线信息，
+包括距离、预计时间和导航步骤。
+Nearby Tool：使用 Nearby Search API 识别指定区域内的兴趣点。
+返回地点名称、评分和其他元数据。
+PlaceInfo Tool：使用 Place Details API 检索给定地点的详细信息，
+包括地址、营业时间、联系信息和评论。
+4 实验设置
+4.1 数据集
+我们在四个基准上评估了 MapAgent，涵盖
+两种模态，如表 4 所示。这些
+基准涵盖了广泛的复杂地理空间推理任务，
+包括长上下文推理、API 交互、视觉地图分析、
+数值计算和多步推理。
+其中三个基准来自 MapEval（Dihan et al.,
+2025b）：
+Dataset # Tasks Modality
+MapEval-Textual 300 Text
+MapEval-API 300 Text
+MapEval-Visual 400 Vision
+MapQA 3154 Text
+表 4：数据集概览：统计和模态
+MapEval-Textual：给定一个用户查询，并附带描述地图位置、POI、
+路线、导航细节、旅行距离/时间和用户生成内容（如评分/评论）的长文本上下文，
+任务是基于该上下文回答查询。
+MapEval-API：给定一个用户查询并可访问
+基于地图的 API，任务是回答查询
+1300
