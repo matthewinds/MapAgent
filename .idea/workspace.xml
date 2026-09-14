@@ -11,7 +11,6 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="488" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="Git.Settings">
@@ -155,6 +154,7 @@
       <workItem from="1789202472246" duration="792000" />
       <workItem from="1789203275375" duration="3621000" />
       <workItem from="1789206981399" duration="95000" />
+      <workItem from="1789376473235" duration="377000" />
     </task>
     <task id="LOCAL-00001" summary="做了将openAI替换成DeepSeek的适配变更">
       <option name="closed" value="true" />
